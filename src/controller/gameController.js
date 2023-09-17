@@ -1,21 +1,6 @@
 import gameService from "../services/gameService";
 
 
-let getAllNewGame = async (req, res) => {
-    try {
-        let infor = await gameService.getAllNewGame(req.query.limit);
-        return res.status(200).json(
-            infor
-        )
-    } catch (e) {
-        console.log(e);
-        return res.status(200).json({
-            errCode: -1,
-            errMessage: 'Error from the server'
-        })
-    }
-}
-
 let getAllTopGame = async (req, res) => {
     try {
         let infor = await gameService.getAllTopGame(req.query.limit, req.query.type);
@@ -79,6 +64,41 @@ let CreateNewAccount = async (req, res) => {
         })
     }
 }
+
+let DeleteAccount = async (req, res) => {
+    try {
+        let infor = await gameService.DeleteAccount(req.body);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let DeleteGame = async (req, res) => {
+    try {
+        let infor = await gameService.DeleteGame(req.body);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+
+
+
+
 
 let getAllCodeService = async (req, res) => {
     try {
@@ -158,12 +178,132 @@ let findGameByKeyWord = async (req, res) => {
 
 
 
+let getGameByCategory = async (req, res) => {
+    try {
+        let infor = await gameService.getGameByCategory(req.query.tagId, req.query.limit, req.query.pageNumber);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let getCategoryByTagId = async (req, res) => {
+    try {
+        let infor = await gameService.getCategoryByTagId(req.query.tagId);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let getAllAccount = async (req, res) => {
+    try {
+        let infor = await gameService.getAllAccount(req.query.limit, req.query.pageNumber);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let getAllGame = async (req, res) => {
+    try {
+        let infor = await gameService.getAllGame(req.query.limit, req.query.pageNumber);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+
+
+
+
+let ChangPasswordAccount = async (req, res) => {
+    try {
+        let infor = await gameService.ChangPasswordAccount(req.body);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let ChangeInforAccount = async (req, res) => {
+    try {
+        let infor = await gameService.ChangeInforAccount(req.body);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+let ChangeInforGame = async (req, res) => {
+    try {
+        let infor = await gameService.ChangeInforGame(req.body);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 module.exports = {
-    getAllNewGame: getAllNewGame,
     CreateNewGame: CreateNewGame,
     getAllCodeService: getAllCodeService,
     getGameById: getGameById,
@@ -172,5 +312,15 @@ module.exports = {
     getAllTopGame18: getAllTopGame18,
     CreateNewAccount: CreateNewAccount,
     LoginIntoSystem: LoginIntoSystem,
-    findGameByKeyWord: findGameByKeyWord
+    findGameByKeyWord: findGameByKeyWord,
+    getGameByCategory: getGameByCategory,
+    getCategoryByTagId: getCategoryByTagId,
+    ChangPasswordAccount: ChangPasswordAccount,
+    DeleteAccount: DeleteAccount,
+    getAllAccount: getAllAccount,
+    ChangeInforAccount: ChangeInforAccount,
+    getAllGame: getAllGame,
+    DeleteGame: DeleteGame,
+    ChangeInforGame: ChangeInforGame
+
 }

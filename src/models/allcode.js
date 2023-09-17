@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       AllCode.hasMany(models.Game, { foreignKey: 'language' })
       AllCode.hasMany(models.Game, { foreignKey: 'win' })
       AllCode.hasMany(models.Game, { foreignKey: 'playWith' })
+      AllCode.hasMany(models.User, { foreignKey: 'roleId' })
 
     }
   }

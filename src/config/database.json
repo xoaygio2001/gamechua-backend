@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "gamechua",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
+    "username": "postgres",
+    "password": "0974654764aA",
+    "database": "postgres",
+    "host": "db.hsycdehkweboqyskjpsu.supabase.co",
+    "dialect": "postgres",
     "logging": false
   },
   "test": {
